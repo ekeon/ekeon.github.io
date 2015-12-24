@@ -15,9 +15,9 @@ markdown:           rdiscount
 
 # Navigation
 nav:
-  - name:           "About"
-    href:           "//gfjaru.github.io/Kiko/about"
-  - name:           "Download"
+  - name:           "github"
+    href:           "//github.com/github"
+  - name:           "Theme Download"
     href:           "//github.com/gfjaru/Kiko/releases"
 
 # Sass
