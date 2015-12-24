@@ -3,10 +3,10 @@
 # # # # # # # #
 
 # Basic
-name:               "Kiko"
+name:               "ekeon"
 
 # URL
-baseurl:            "/Kiko"
+baseurl:            "/ekeon"
 #baseurl:            "" #For Root Domain
 permalink:          /:year/:month/:day/:title.html
 
@@ -15,8 +15,8 @@ markdown:           rdiscount
 
 # Navigation
 nav:
-  - name:           "About"
-    href:           "//gfjaru.github.io/Kiko/about"
+  - name:           "github"
+    href:           "//ekeon.github.io/ekeon/"
   - name:           "Download"
     href:           "//github.com/gfjaru/Kiko/releases"
 
