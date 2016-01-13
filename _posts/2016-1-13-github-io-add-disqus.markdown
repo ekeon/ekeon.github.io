@@ -19,24 +19,26 @@ categories: jekyll update
 ![disqus6](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png)
 
 7.자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준다 
-  \{% include comments.html %} 를 post.html 은 사람마다 다를수있으나 보통은 content 아래에 추가해준다.
+  '{% include comments.html %}' 를 post.html 은 사람마다 다를수있으나 보통은 content 아래에 추가해준다.
 
-`<html lang="en">`
-`<head>`
-`  <meta charset="utf-8">`
-`  <meta name="viewport" content="width=device-width, initial-scale=1">`
-`  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>`
-`  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">`
-`  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">`
-`  </head>`
-`<body>`
-`  <div class="container">`
-`        <article class="content">`
-`            {{ content }}`
-`        <section class="comment">`
-`        {% include comments.html %} 마크다운 형식이라 html 파일을 불러와 주석처리해두었슴.`
-`        </section>`
-`    </article>`
-`  </div>`
-`</body>`
-`</html>`
+{% highlight java %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+  </head>
+<body>
+  <div class="container">
+        <article class="content">
+            <!--{{ content }}-->
+        <section class="comment">
+        <!--{% include comments.html %} 마크다운 형식이라 html 파일을 불러와 주석처리해두었슴.-->
+        </section>
+    </article>
+  </div>
+</body>
+</html>
+{% endhighlight %}
