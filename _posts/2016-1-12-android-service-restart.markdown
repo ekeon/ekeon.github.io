@@ -7,7 +7,7 @@ categories: jekyll update
 
 ### PersistentService.java
 
-    {.java}
+```
     public class PersistentService extends Service {
 
         @Override
@@ -54,6 +54,7 @@ categories: jekyll update
                 return null;
         }
     }
+```
 
 ### RestartService.java
     
@@ -80,7 +81,7 @@ categories: jekyll update
 
 ###  MainActivity.java
     
-    {.java}
+    
     BroadcastReceiver receiver = new RestartService();
 
     @Override
