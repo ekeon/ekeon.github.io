@@ -27,6 +27,16 @@ trigger_alert();
 
 {% endhighlight %}
 
+{% highlight java %}
+
+function trigger_alert(){
+  alert("Lorem Ipsum dolor sit amet");
+}
+
+trigger_alert();
+
+{% endhighlight %}
+
 ### Golem
 Quisque sodales euismod nibh, gravida venenatis nibh dignissim eget. Morbi gravida enim vel lectus aliquet aliquet.
 
