@@ -7,7 +7,7 @@ categories: jekyll update
 
 ### PersistentService.java
 
-```java 
+{% highlight java %}
 public class PersistentService extends Service {
 
     @Override
@@ -54,10 +54,11 @@ public class PersistentService extends Service {
             return null;
     }
 }
-```
+{% endhighlight %}
 
 ### RestartService.java
-```
+
+{% highlight java %}
 public class RestartService extends BroadcastReceiver{
 
     @Override
@@ -77,10 +78,11 @@ public class RestartService extends BroadcastReceiver{
         }
     }
 }
-```
+{% endhighlight %}
 
 ###  MainActivity.java
-```java
+
+{% highlight java %}
 BroadcastReceiver receiver = new RestartService();
 
 @Override
@@ -106,52 +108,54 @@ protected void onDestroy() {
     unregisterReceiver(receiver);
     super.onDestroy();
 }
-```
+{% endhighlight %}
 
+{% highlight xml %}
 ### AndroidManifest.xml
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest
-        package="com.ekeon.clipboardtest"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-    
-      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    
-      <application
-          android:allowBackup="true"
-          android:icon="@mipmap/ic_launcher"
-          android:label="@string/app_name"
-          android:supportsRtl="true"
-          android:theme="@style/AppTheme">
-    
-        <activity android:name=".MainActivity">
-          <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-          </intent-filter>
-        </activity>
-    
-        <service
-            android:name=".PersistentService"
-            android:enabled="true"
-            android:process=":remote">
-          <intent-filter>
-            <action android:name="com.ekeon.clipboardtest.restart"/>
-          </intent-filter>
-        </service>
-    
-        <receiver
-            android:name=".RestartService"
-            android:enabled="true"
-            android:exported="false"
-            android:label="RestartService"
-            android:process=":remote">
-          <intent-filter>
-            <action android:name="ACTION.RESTART.PersistentService"/>
-            <action android:name="android.intent.action.BOOT_COMPLETED"/>
-          </intent-filter>
-    
-        </receiver>
-      </application>
-    
-    </manifest>
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.ekeon.clipboardtest"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+  <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+
+    <activity android:name=".MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+
+    <service
+        android:name=".PersistentService"
+        android:enabled="true"
+        android:process=":remote">
+      <intent-filter>
+        <action android:name="com.ekeon.clipboardtest.restart"/>
+      </intent-filter>
+    </service>
+
+    <receiver
+        android:name=".RestartService"
+        android:enabled="true"
+        android:exported="false"
+        android:label="RestartService"
+        android:process=":remote">
+      <intent-filter>
+        <action android:name="ACTION.RESTART.PersistentService"/>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+      </intent-filter>
+
+    </receiver>
+  </application>
+
+</manifest>
+{% endhighlight %}
