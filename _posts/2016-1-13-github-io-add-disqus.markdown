@@ -8,3 +8,4 @@ categories: jekyll update
 ##test
 ![test](https://github.com/ekeon/ekeon.github.io/blob/master/image/disqus1.png)
 ![test](/ekeon/ekeon.github.io/blob/master/image/disqus1.png?raw=true)
+<img src="/ekeon/ekeon.github.io/blob/master/image/disqus1.png?raw=true" alt="disqus1.png">
