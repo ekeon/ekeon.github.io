@@ -11,15 +11,15 @@ categories: jekyll update
 ![disqus2](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus2.png)
 Start Using Engage
 ![disqus3](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus3.png)
-알아서 설치
+다 적은후 Finish registration.
 ![disqus4](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus4.png)
 Universal Code 클릭
 ![disqus5](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus5.png)
 아래 소스코드 copy
-![disqus6](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png)정
+![disqus6](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png)
 
-자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준후 post.html 에 추가해준다.
-post.html은 테마나 사람마다 다를수있슴.
+자신의 includes 폴더안에 "comments.html" 생성 해주고 아까 copy 한 내용을 복사해준후 "post.html" 에 추가해준다.
+"post.html" 은 테마나 사람마다 다를수있슴.
 
 {% highlight html %}
 <!DOCTYPE html>
