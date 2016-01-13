@@ -21,25 +21,22 @@ Universal Code 클릭
 자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준후 post.html 에 추가해준다.
 post.html 은 테마나 사람마다 다를수있슴.
 
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
-  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
-  </head>
-<body>
-  <div class="container">
-        <article class="content">
-            {{ content }}
-        <section class="comment">
-        {% include comments.html %}
-        </section>
-    </article>
-  </div>
-</body>
-</html>
-```
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+      <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+      </head>
+    <body>
+      <div class="container">
+            <article class="content">
+                {{ content }}
+            <section class="comment">
+            {% include comments.html %}
+            </section>
+        </article>
+      </div>
+    </body>
+    </html>
