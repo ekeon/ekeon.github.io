@@ -18,10 +18,10 @@ Universal Code 클릭
 아래 소스코드 copy
 ![disqus6](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png)
 
-자신의 includes 폴더안에 "comments.html" 생성 해주고 아까 copy 한 내용을 복사해준후 "post.html" 에 추가해준다.
-"post.html" 은 테마나 사람마다 다를수있슴.
+자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준후 post.html 에 추가해준다.
+post.html 은 테마나 사람마다 다를수있슴.
 
-{% highlight html %}
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,4 +42,4 @@ Universal Code 클릭
   </div>
 </body>
 </html>
-{% endhighlight %}
+```
