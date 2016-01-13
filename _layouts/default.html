@@ -9,8 +9,12 @@
   </head>
 <body>
   <div class="container">
-    {{ content }}
-    {% include comments.html %}
+    	<article class="content">
+    		{{ content }}
+    	<section class="comment">
+    	{% include comments.html %}
+    	</section>
+	</article>
   </div>
 </body>
 </html>
