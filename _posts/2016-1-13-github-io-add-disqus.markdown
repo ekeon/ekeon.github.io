@@ -19,7 +19,7 @@ categories: jekyll update
 ![disqus6](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png)
 
 7.자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준다 
-  \{% include comments.html %\} 를 post.html 은 사람마다 다를수있으나 보통은 content 아래에 추가해준다.
+  \{% include comments.html %} 를 post.html 은 사람마다 다를수있으나 보통은 content 아래에 추가해준다.
 
 `<html lang="en">`
 `<head>`
