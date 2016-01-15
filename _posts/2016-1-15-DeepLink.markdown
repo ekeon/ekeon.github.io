@@ -49,7 +49,7 @@ public class DeepLinkActivity{
     Intent intent = getIntent();
 
     Intent goHomeActivity = new Intent(this, HomeActivity.class);
-    startActivity(goHomeActivity); // 핸들링 해주면된다.
+    startActivity(goHomeActivity); // 핸들링 해주면된다
   }
 }
 
