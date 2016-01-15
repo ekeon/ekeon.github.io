@@ -52,5 +52,5 @@ public class DeepLinkActivity{
     startActivity(goHomeActivity); // 핸들링 해주면된다
   }
 }
-
+{% endhighlight %}
 
