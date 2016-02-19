@@ -8,7 +8,7 @@ categories: jekyll update
 간단한 안드로이드 애니메이션.
 bind는 <a gref="https://github.com/JakeWharton/butterknife">버터나이프</a> 를 이용했습니다.
 
-```
+```java
   @Bind(R.id.imageview) ImageView imageview;
   private boolean fabUp = false;
 
