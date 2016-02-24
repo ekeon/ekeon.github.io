@@ -196,8 +196,8 @@ public class TwoWaySampleFragment extends Fragment {
 }
 {% endhighlight %}
 
-//넘겨주는 부분.
 ```java
+//넘겨주는 부분.
   @OnClick(R.id.btn_show_twv)
   void onShowTwv() {
     Fragment twoWaySampleFragment = TwoWaySampleFragment.newInstance();
