@@ -210,3 +210,43 @@ public class TwoWaySampleFragment extends Fragment {
 
   }
 ```
+
+####참고 예제
+{% highlight java %}
+public class HolderOne extends RecyclerView.ViewHolder {
+
+  @Bind(R.id.btn_holder_one) Button btnHolderOne;
+
+  public static HolderOne newInstance(Context context) {
+    View itemView = LayoutInflater.from(context).inflate(R.layout.holder_one, null);
+    return new HolderOne(itemView);
+  }
+
+  public HolderOne(View itemView) {
+    super(itemView);
+    ButterKnife.bind(this, itemView);
+  }
+
+  publiv void bind(int position) {
+    btnHolderOne.setText("" + position);
+  }
+
+}
+...
+//in adapter
+
+  @Override
+  protected void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    if (holder instanceof HolderOne) {
+      ((HolderOne) holder).bind(postiong);
+      return;
+    }
+  }
+
+  private void onBindChannelResult(SearchResultChannelHolder holder, int position) {
+    ChannelModel channelModel = channels.get(position);
+    holder.bind(channelModel);
+  }
+{% endhighlight %}
+
+
