@@ -101,7 +101,7 @@ public class HolderThree extends RecyclerView.ViewHolder {
 {% endhighlight %}
 
 ###twoWayView Adapter
-{% highlight java %}
+```java
 public class TwoWaySampleAdapter extends TwoWayView.Adapter {
 
   private final int TYPE_HOLDER_ONE = 0;
@@ -157,10 +157,10 @@ public class TwoWaySampleAdapter extends TwoWayView.Adapter {
     return super.getItemViewType(position);
   }
 }
-{% endhighlight %}
+```
 
 ###Adapter를 init해줄 Fragment
-{% highlight java %}
+```java
 public class TwoWaySampleFragment extends Fragment {
 
   @Bind(R.id.twv_test) TwoWayView testRecyclerView;
@@ -194,7 +194,7 @@ public class TwoWaySampleFragment extends Fragment {
   }
 
 }
-{% endhighlight %}
+```
 
 ```java
 //넘겨주는 부분.
