@@ -9,8 +9,8 @@ categories: jekyll update
 기본 RecyclerView 와 사용법은 똑같지만 RecyclerView 를 init 해주는 시점에서 setLayoutManager부분이 기존 RecyclerView 보다 많은 기능을 제공해주기 때문에 일반 RecyclerView를 쓰기보다는 TwoWayView를 사용하기를 추천한다.  
 
 ####gradle : compile 'org.lucasr.twowayview:twowayview:0.1.4'  
-
-##리싸이클러뷰 에사용할 뷰홀더를 3개 만들었다.  
+  
+RecyclerView에 사용할 뷰홀더를 3개 만들었다.  
 ###holder_one.xml, HolderOne.java
 {% highlight xml %}
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -197,7 +197,7 @@ public class TwoWaySampleFragment extends Fragment {
 ```
 
 ```java
-//넘겨주는 부분.
+//넘겨주는 부분 MainActivity.
   @OnClick(R.id.btn_show_twv)
   void onShowTwv() {
     Fragment twoWaySampleFragment = TwoWaySampleFragment.newInstance();
