@@ -10,7 +10,8 @@ categories: jekyll update
 
 ####gradle : compile 'org.lucasr.twowayview:twowayview:0.1.4'  
 
-##holder_one.xml
+##리싸이클러뷰 에사용할 뷰홀더를 3개 만들었다.  
+###holder_one.xml, HolderOne.java
 {% highlight xml %}
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -25,7 +26,23 @@ categories: jekyll update
 </LinearLayout>
 {% endhighlight %}
 
-##holder_two.xml
+{% highlight java %}
+public class HolderOne extends RecyclerView.ViewHolder {
+
+  public static HolderOne newInstance(Context context) {
+    View itemView = LayoutInflater.from(context).inflate(R.layout.holder_one, null);
+    return new HolderOne(itemView);
+  }
+
+  public HolderOne(View itemView) {
+    super(itemView);
+    ButterKnife.bind(this, itemView);
+  }
+
+}
+{% endhighlight %}
+
+###holder_two.xml, HolderTwo.java
 {% highlight xml %}
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -40,7 +57,21 @@ categories: jekyll update
 </LinearLayout>
 {% endhighlight %}
 
-##holder_three.xml
+{% highlight java %}
+public class HolderTwo extends RecyclerView.ViewHolder {
+
+  public static HolderTwo newInstance(Context context) {
+    View itemView = LayoutInflater.from(context).inflate(R.layout.holder_two, null);
+    return new HolderTwo(itemView);
+  }
+
+  public HolderTwo(View itemView) {
+    super(itemView);
+  }
+}
+{% endhighlight %}
+
+###holder_three.xml, HolderThree.java
 {% highlight xml %}
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -55,8 +86,127 @@ categories: jekyll update
 </LinearLayout>
 {% endhighlight %}
 
-
 {% highlight java %}
+public class HolderThree extends RecyclerView.ViewHolder {
 
+  public static HolderThree newInstance(Context context) {
+    View itemView = LayoutInflater.from(context).inflate(R.layout.holder_three, null);
+    return new HolderThree(itemView);
+  }
+
+  public HolderThree(View itemView) {
+    super(itemView);
+  }
+}
 {% endhighlight %}
 
+###twoWayView Adapter
+{% highlight java %}
+public class TwoWaySampleAdapter extends TwoWayView.Adapter {
+
+  private final int TYPE_HOLDER_ONE = 0;
+  private final int TYPE_HOLDER_TWO = 1;
+  private final int TYPE_HOLDER_THREE = 2;
+
+  @Override
+  public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    RecyclerView.ViewHolder viewHolder = null;
+    Context context = parent.getContext();
+
+    //위에 int 로 지정해놓은 뷰홀더 타입에 인스턴스를 넘겨주고 viewholder을 리턴해줌.
+    switch (viewType) {
+      case TYPE_HOLDER_ONE:
+        viewHolder = HolderOne.newInstance(context);
+        break;
+      case TYPE_HOLDER_TWO:
+        viewHolder = HolderTwo.newInstance(context);
+        break;
+      case TYPE_HOLDER_THREE:
+        viewHolder = HolderThree.newInstance(context);
+        break;
+    }
+    return viewHolder;
+  }
+
+  @Override
+  public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+  //view holder 에 position값이나 data 등을 넘겨줄때 사용해준다.
+  }
+
+  @Override
+  public int getItemCount() {
+    //보통 어댑터를 set해줄때 넘겨주는 array의 size로 카운트를 정해놓지만 간단한 예제이기때문에 고정된 숫자로 넣어두었다.
+    //ex) array.size;
+    return 13;
+  }
+
+  @Override
+  public int getItemViewType(int position) {
+  //넣고싶은 위치에 분기를 쳐서 타입을 리턴해주면 된다.
+    if (position >= 0 && position <= 4) {
+     return TYPE_HOLDER_ONE;
+    }
+
+    if (position >= 5 && position <= 9) {
+      return TYPE_HOLDER_TWO;
+    }
+
+    if (position >= 10 && position <= 14) {
+      return TYPE_HOLDER_THREE;
+    }
+    return super.getItemViewType(position);
+  }
+}
+{% endhighlight %}
+
+###Adapter를 init해줄 Fragment
+{% highlight java %}
+public class TwoWaySampleFragment extends Fragment {
+
+  @Bind(R.id.twv_test) TwoWayView testRecyclerView;
+  TwoWaySampleAdapter twoWaySampleAdapter;
+
+  public static TwoWaySampleFragment newInstance() {
+    return new TwoWaySampleFragment();
+  }
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.twowayview, container, false);
+  }
+
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    ButterKnife.bind(this, view);
+    twoWaySampleAdapter = new TwoWaySampleAdapter();
+
+    testRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(TwoWayLayoutManager.Orientation.VERTICAL, 2, 2));
+    testRecyclerView.setAdapter(twoWaySampleAdapter);
+
+    Log.d("TAG", "init");
+  }
+
+  @Override
+  public void onDestroy() {
+    ButterKnife.unbind(this);
+    super.onDestroy();
+  }
+
+}
+{% endhighlight %}
+
+//넘겨주는 부분.
+{% highlight java%}
+  @OnClick(R.id.btn_show_twv)
+  void onShowTwv() {
+    Fragment twoWaySampleFragment = TwoWaySampleFragment.newInstance();
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+            .add(R.id.fl_fragment_layout, twoWaySampleFragment)
+            .show(twoWaySampleFragment);
+
+    fragmentTransaction.commit();
+
+  }
+{% endhighlight %}
