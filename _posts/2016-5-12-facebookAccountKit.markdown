@@ -14,7 +14,7 @@ categories: jekyll update
 ![Fbaccount3](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount3.png)
 4.아래처럼 그래들을 등록
 
-{% highlight xml %}
+```xml
 repositories {
   jcenter()
 }
@@ -22,11 +22,11 @@ repositories {
 dependencies {
   compile 'com.facebook.android:account-kit-sdk:4.+'
 }
-{% endhighlight %}
+```
 
 5.AndroidManifest를 아래처럼  3번째 사진에 있는 ACCOUNT_KIT_CLIENT_TOKEN, appid strings 에 등록해준다.
 
-{% highlight xml %}
+```xml
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.RECEIVE_SMS" />
   <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -49,11 +49,11 @@ dependencies {
              android:value="@string/app_name" />
    </application>
 
-{% endhighlight %}
+```
 
 6.MainActivity 소스 이다 바인드에 버터나이프 라이브러리를 사용함.
 
-{% highlight java %}
+```java
 public class MainActivity extends AppCompatActivity {
 
   private static final String TAG = "TAG";
@@ -149,8 +149,10 @@ public class MainActivity extends AppCompatActivity {
     this.startActivity(intent);
   }
 }
-{% endhighlight %}
+```
 
 7. xml Theme.AccountKit 이 없다고 익셉션이 뜨는경우
 style.xml 에 아래코드를 추가해준다 
+```xml
     <style name="AppLoginTheme" parent="Theme.AccountKit" />
+```
