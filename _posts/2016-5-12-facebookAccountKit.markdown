@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
 7. xml Theme.AccountKit 이 없다고 익셉션이 뜨는경우
 style.xml 에 아래코드를 추가해준다 
+
 ```xml
     <style name="AppLoginTheme" parent="Theme.AccountKit" />
 ```
