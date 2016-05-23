@@ -6,13 +6,13 @@ categories: jekyll update
 ---
 <a href="https://developers.facebook.com/docs/accountkit/android"><h2>FacebookAccountKit</h2></a>
 
-1. 처음 페이스북 앱을 등록하는것이라면 Skip and Create App ID 를 클릭해준다.
-
-2. 현재 사용하고 있는 앱이 있다면 앱을 클릭해주고 오른쪽 상단에 Skip Quick Start 를 눌러주면된다
-
-3. 등록하고나면 아래의 화면이 뜨게된다
-
-4. 아래처럼 그래들을 등록
+1.처음 페이스북 앱을 등록하는것이라면 Skip and Create App ID 를 클릭해준다.
+![Fbaccount1](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount1.png)
+2.현재 사용하고 있는 앱이 있다면 앱을 클릭해주고 오른쪽 상단에 Skip Quick Start 를 눌러주면된다
+![Fbaccount2](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount2.png)
+3.등록하고나면 아래의 화면이 뜨게된다
+![Fbaccount3](https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount3.png)
+4.아래처럼 그래들을 등록
 
 {% highlight xml %}
 repositories {
@@ -24,7 +24,7 @@ dependencies {
 }
 {% endhighlight %}
 
-5. AndroidManifest를 아래처럼  3번째 사진에 있는 ACCOUNT_KIT_CLIENT_TOKEN, appid strings 에 등록해준다.
+5.AndroidManifest를 아래처럼  3번째 사진에 있는 ACCOUNT_KIT_CLIENT_TOKEN, appid strings 에 등록해준다.
 
 {% highlight xml %}
   <uses-permission android:name="android.permission.INTERNET" />
@@ -51,7 +51,7 @@ dependencies {
 
 {% endhighlight %}
 
-6. MainActivity 소스 이다 바인드에 버터나이프 라이브러리를 사용함.
+6.MainActivity 소스 이다 바인드에 버터나이프 라이브러리를 사용함.
 
 {% highlight java %}
 public class MainActivity extends AppCompatActivity {
@@ -150,3 +150,7 @@ public class MainActivity extends AppCompatActivity {
   }
 }
 {% endhighlight %}
+
+7. xml Theme.AccountKit 이 없다고 익셉션이 뜨는경우
+style.xml 에 아래코드를 추가해준다 
+```<style name="AppLoginTheme" parent="Theme.AccountKit" />
