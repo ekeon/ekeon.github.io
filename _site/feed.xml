@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Ekeon</title>
+		<link></link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>gson + williamChart</title>
+        <description>&lt;p class=&quot;lead&quot;&gt; &lt;a href=&quot;https://github.com/google/gson&quot;&gt;Gson&lt;/a&gt; : json convert to java object&lt;/p&gt;
+
+
+&lt;p class=&quot;lead&quot;&gt; &lt;a href=&quot;https://github.com/diogobernardino/WilliamChart&quot;&gt;WilliamChart&lt;/a&gt; : android chart library&lt;/p&gt;
+
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&quot;dummy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;dummydata&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;&quot;dummylist&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;one&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;42.87&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;two&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;42.16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;three&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;42.45&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;four&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;39.16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;five&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;37.25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;six&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;38.02&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;&quot;dummycount&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;40.32&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;&quot;dummydummy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DummyListModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@SerializedName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dummylist&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummylist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@SerializedName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dummycount&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummycount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@SerializedName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dummydummy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydummy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TreeMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDummyList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setDummyList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TreeMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dummyList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDummyCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setDummyCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dummyCount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDummydummy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydummy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setDummydummy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydummy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dummydummy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydummy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DummyDataModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@SerializedName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dummydata&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyListModel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyListModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setDummyListModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DummyListModel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyListModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dummyListModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummyListModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyListModel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDummyListModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commentCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DummyModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@SerializedName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dummy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyDataModel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydatamodel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DummyData&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDummyDataModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydatamodel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setDummyDataModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DummyDataModel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydatamodel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;dummydatamodel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dummydatamodel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  private final static String dummyjson = &quot;dummyjson&quot;//예제 json;
+
+  public DummyJsonModel getDummyModel() {
+    Gson gson = new Gson();
+    DummyJsonModel dummyJsonModel = gson.fromJson(dummyjson, DummyJsonModel.class);
+
+    return dummyJsonModel == null ? null : dummyJsonModel;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+				<pubDate>Thu, 12 May 2016 05:43:00 +0900</pubDate>
+				<link>/2016/05/12/gson+williamChart.html</link>
+				<guid isPermaLink="true">/2016/05/12/gson+williamChart.html</guid>
+			</item>
+		
+			<item>
+				<title>FB-Account-Kit</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://developers.facebook.com/docs/accountkit/android&quot;&gt;&lt;h2&gt;FacebookAccountKit&lt;/h2&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;1.처음 페이스북 앱을 등록하는것이라면 Skip and Create App ID 를 클릭해준다.
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount1.png&quot; alt=&quot;Fbaccount1&quot; /&gt;
+2.현재 사용하고 있는 앱이 있다면 앱을 클릭해주고 오른쪽 상단에 Skip Quick Start 를 눌러주면된다
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount2.png&quot; alt=&quot;Fbaccount2&quot; /&gt;
+3.등록하고나면 아래의 화면이 뜨게된다
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/facebookAccount3.png&quot; alt=&quot;Fbaccount3&quot; /&gt;
+4.아래처럼 그래들을 등록&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;repositories {
+  jcenter()
+}
+
+dependencies {
+  compile &#39;com.facebook.android:account-kit-sdk:4.+&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;5.AndroidManifest를 아래처럼  3번째 사진에 있는 ACCOUNT_KIT_CLIENT_TOKEN, appid strings 에 등록해준다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;  &amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&amp;gt;
+  &amp;lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot; /&amp;gt;
+  &amp;lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&amp;gt;
+  &amp;lt;uses-permission android:name=&quot;android.permission.GET_ACCOUNTS&quot; /&amp;gt;
+
+  &amp;lt;application
+   android:theme=&quot;@style/AppTheme&quot;&amp;gt;
+  ...생략
+
+    &amp;lt;activity
+    android:name=&quot;com.facebook.accountkit.ui.AccountKitActivity&quot;
+    android:theme=&quot;@style/AppLoginTheme&quot;
+    tools:replace=&quot;android:theme&quot;/&amp;gt;
+
+  &amp;lt;meta-data android:name=&quot;com.facebook.sdk.ApplicationId&quot;
+             android:value=&quot;@string/app_id&quot; /&amp;gt;
+  &amp;lt;meta-data android:name=&quot;com.facebook.accountkit.ClientToken&quot;
+             android:value=&quot;@string/ACCOUNT_KIT_CLIENT_TOKEN&quot; /&amp;gt;
+  &amp;lt;meta-data android:name=&quot;com.facebook.accountkit.ApplicationName&quot;
+             android:value=&quot;@string/app_name&quot; /&amp;gt;
+   &amp;lt;/application&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;6.MainActivity 소스 이다 바인드에 버터나이프 라이브러리를 사용함.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class MainActivity extends AppCompatActivity {
+
+  private static final String TAG = &quot;TAG&quot;;
+
+  @OnClick(R.id.btn_email)
+  void onEmail() {
+    Log.d(TAG, &quot;btnemailclick&quot;);
+    onLoginPhoneOrEmail(LoginType.EMAIL);
+  }
+
+  @OnClick(R.id.btn_phone)
+  void onPhone() {
+    Log.d(TAG,&quot;btnphoneclick&quot;);
+    onLoginPhoneOrEmail(LoginType.PHONE);
+  }
+
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    AccountKit.initialize(getApplicationContext());
+    setContentView(R.layout.activity_main);
+    ButterKnife.bind(this);
+
+    AccessToken accessToken = AccountKit.getCurrentAccessToken();
+
+    if (accessToken != null) {
+      //Handle Returning User
+      goToMyLoggedInActivity();
+      Log.d(TAG, &quot;onCreate: !null &quot; + accessToken);
+    } else {
+      //Handle new or logged out user
+      Log.d(TAG, &quot;onCreate: null &quot; + accessToken);
+    }
+  }
+
+  public static int APP_REQUEST_CODE = 99;
+
+  public void onLoginPhoneOrEmail(LoginType loginType) {
+    final Intent intent = new Intent(this, AccountKitActivity.class);
+    AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder =
+            new AccountKitConfiguration.AccountKitConfigurationBuilder(
+                    loginType,
+                    AccountKitActivity.ResponseType.CODE); // or .ResponseType.TOKEN
+    // ... perform additional configuration ...
+    intent.putExtra(
+            AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,
+            configurationBuilder.build());
+    startActivityForResult(intent, APP_REQUEST_CODE);
+  }
+
+  @Override
+  protected void onActivityResult(
+          final int requestCode,
+          final int resultCode,
+          final Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == APP_REQUEST_CODE) { // confirm that this response matches your request
+      AccountKitLoginResult loginResult = data.getParcelableExtra(AccountKitLoginResult.RESULT_KEY);
+      String toastMessage;
+      if (loginResult.getError() != null) {
+        toastMessage = loginResult.getError().getErrorType().getMessage();
+        showErrorActivity(loginResult.getError());
+      } else if (loginResult.wasCancelled()) {
+        toastMessage = &quot;Login Cancelled&quot;;
+      } else {
+        if (loginResult.getAccessToken() != null) {
+          toastMessage = &quot;Success:&quot; + loginResult.getAccessToken().getAccountId();
+        } else {
+          toastMessage = String.format(&quot;Success:%s...&quot;,
+                  loginResult.getAuthorizationCode().substring(0,10));
+        }
+
+        // If you have an authorization code, retrieve it from
+        // loginResult.getAuthorizationCode()
+        // and pass it to your server and exchange it for an access token.
+
+        // Success! Start your next activity...
+        goToMyLoggedInActivity();
+      }
+
+      // Surface the result to your user in an appropriate way.
+      Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+    }
+  }
+
+  private void showErrorActivity(AccountKitError error) {
+    Log.d(&quot;TAG&quot;, &quot;showErrorActivity: &quot; + error.toString());
+  }
+
+  private void goToMyLoggedInActivity(){
+    final Intent intent = new Intent(this, SuccessActivity.class);
+    this.startActivity(intent);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;xml Theme.AccountKit 이 없다고 익셉션이 뜨는경우
+style.xml 에 아래코드를 추가해준다&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;    &amp;lt;style name=&quot;AppLoginTheme&quot; parent=&quot;Theme.AccountKit&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+				<pubDate>Thu, 12 May 2016 05:43:00 +0900</pubDate>
+				<link>/2016/05/12/facebookAccountKit.html</link>
+				<guid isPermaLink="true">/2016/05/12/facebookAccountKit.html</guid>
+			</item>
+		
+			<item>
+				<title>Live-Templates</title>
+        <description>&lt;div class=&quot;video&quot;&gt;
+    &lt;figure&gt;
+        &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/4rI4tTd7-J8&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/figure&gt;
+&lt;/div&gt;
+
+</description>
+				<pubDate>Mon, 09 May 2016 06:51:00 +0900</pubDate>
+				<link>/2016/05/09/live-templates.html</link>
+				<guid isPermaLink="true">/2016/05/09/live-templates.html</guid>
+			</item>
+		
+			<item>
+				<title>python-jekyll-push-script</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://halryang.net/push-jekyll-simply-with-python-script/&quot;&gt;참고블로그&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;import sys
+reload(sys)
+
+sys.setdefaultencoding(&#39;utf-8&#39;)
+
+import subprocess
+import os
+
+os.chdir(&#39;/path&#39;)
+
+subprocess.call([&quot;git&quot;, &quot;add&quot;, &quot;.&quot;])
+subprocess.call([&quot;git&quot;, &quot;commit&quot;, &quot;-m&quot;, &quot;auto push&quot;])
+subprocess.call([&quot;git&quot;, &quot;push&quot;, &quot;-u&quot;, &quot;origin&quot;, &quot;master&quot;])
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+				<pubDate>Wed, 24 Feb 2016 04:35:00 +0900</pubDate>
+				<link>/2016/02/24/python-jekyll-push-script.html</link>
+				<guid isPermaLink="true">/2016/02/24/python-jekyll-push-script.html</guid>
+			</item>
+		
+			<item>
+				<title>TwoWayView + RecyclerView</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/lucasr/twoway-view&quot;&gt;twoway-view&lt;/a&gt; 란 안드로이드 &lt;a href=&quot;http://developer.android.com/intl/ko/reference/android/support/v7/widget/RecyclerView.html&quot;&gt;RecyclerView 의 라이브러리 이다.&lt;/a&gt;&lt;br/&gt;
+기본 RecyclerView 와 사용법은 똑같지만 RecyclerView 를 init 해주는 시점에서 setLayoutManager부분이 기존 RecyclerView 보다 많은 기능을 제공해주기 때문에 일반 RecyclerView를 쓰기보다는 TwoWayView를 사용하기를 추천한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ekeon/twowayviewExample&quot;&gt;예제소스 깃 주소&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;gradle : compile &#39;org.lucasr.twowayview:twowayview:0.1.4&#39;&lt;/h4&gt;
+
+&lt;p&gt;RecyclerView에 사용할 뷰홀더를 3개 만들었다.&lt;/p&gt;
+
+&lt;h3&gt;holder_one.xml, HolderOne.java&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vertical&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@android:color/holo_red_light&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;view holder one&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;100dp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HolderOne&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ViewHolder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;holder_one&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ButterKnife&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt;holder_two.xml, HolderTwo.java&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vertical&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@android:color/holo_blue_dark&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;view holder two&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;100dp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HolderTwo&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ViewHolder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderTwo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;holder_two&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderTwo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderTwo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt;holder_three.xml, HolderThree.java&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;LinearLayout&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;vertical&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+              &lt;span class=&quot;na&quot;&gt;android:background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@android:color/holo_green_light&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;view holder three&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:layout_height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;100dp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/LinearLayout&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HolderThree&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ViewHolder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderThree&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;holder_three&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderThree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderThree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt;twoWayView Adapter&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class TwoWaySampleAdapter extends TwoWayView.Adapter {
+
+  private final int TYPE_HOLDER_ONE = 0;
+  private final int TYPE_HOLDER_TWO = 1;
+  private final int TYPE_HOLDER_THREE = 2;
+
+  @Override
+  public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    RecyclerView.ViewHolder viewHolder = null;
+    Context context = parent.getContext();
+
+    //위에 int 로 지정해놓은 뷰홀더 타입에 인스턴스를 넘겨주고 viewholder을 리턴해줌.
+    switch (viewType) {
+      case TYPE_HOLDER_ONE:
+        viewHolder = HolderOne.newInstance(context);
+        break;
+      case TYPE_HOLDER_TWO:
+        viewHolder = HolderTwo.newInstance(context);
+        break;
+      case TYPE_HOLDER_THREE:
+        viewHolder = HolderThree.newInstance(context);
+        break;
+    }
+    return viewHolder;
+  }
+
+  @Override
+  public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+  //view holder 에 position값이나 data 등을 넘겨줄때 사용해준다.
+  }
+
+  @Override
+  public int getItemCount() {
+    //보통 어댑터를 set해줄때 넘겨주는 array의 size로 카운트를 정해놓지만 간단한 예제이기때문에 고정된 숫자로 넣어두었다.
+    //ex) array.size;
+    return 13;
+  }
+
+  @Override
+  public int getItemViewType(int position) {
+  //넣고싶은 위치에 분기를 쳐서 타입을 리턴해주면 된다.
+    if (position &amp;gt;= 0 &amp;amp;&amp;amp; position &amp;lt;= 4) {
+     return TYPE_HOLDER_ONE;
+    }
+
+    if (position &amp;gt;= 5 &amp;amp;&amp;amp; position &amp;lt;= 9) {
+      return TYPE_HOLDER_TWO;
+    }
+
+    if (position &amp;gt;= 10 &amp;amp;&amp;amp; position &amp;lt;= 14) {
+      return TYPE_HOLDER_THREE;
+    }
+    return super.getItemViewType(position);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Adapter를 init해줄 Fragment&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class TwoWaySampleFragment extends Fragment {
+
+  @Bind(R.id.twv_test) TwoWayView testRecyclerView;
+  TwoWaySampleAdapter twoWaySampleAdapter;
+
+  public static TwoWaySampleFragment newInstance() {
+    return new TwoWaySampleFragment();
+  }
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.twowayview, container, false);
+  }
+
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    ButterKnife.bind(this, view);
+    twoWaySampleAdapter = new TwoWaySampleAdapter();
+
+    testRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(TwoWayLayoutManager.Orientation.VERTICAL, 2, 2));
+    testRecyclerView.setAdapter(twoWaySampleAdapter);
+
+    Log.d(&quot;TAG&quot;, &quot;init&quot;);
+  }
+
+  @Override
+  public void onDestroy() {
+    ButterKnife.unbind(this);
+    super.onDestroy();
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;//넘겨주는 부분 MainActivity.
+  @OnClick(R.id.btn_show_twv)
+  void onShowTwv() {
+    Fragment twoWaySampleFragment = TwoWaySampleFragment.newInstance();
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+            .add(R.id.fl_fragment_layout, twoWaySampleFragment)
+            .show(twoWaySampleFragment);
+
+    fragmentTransaction.commit();
+
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;참고 예제&lt;/h4&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HolderOne&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ViewHolder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nd&quot;&gt;@Bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;btn_holder_one&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Button&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;btnHolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LayoutInflater&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inflate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;holder_one&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ButterKnife&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;n&quot;&gt;publiv&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;btnHolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setText&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//in adapter&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onBindViewHolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RecyclerView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ViewHolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HolderOne&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;postiong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onBindChannelResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SearchResultChannelHolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ChannelModel&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;channelModel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;channels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;holder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;channelModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+</description>
+				<pubDate>Wed, 24 Feb 2016 04:35:00 +0900</pubDate>
+				<link>/2016/02/24/twowayview-(Recyclerview).html</link>
+				<guid isPermaLink="true">/2016/02/24/twowayview-(Recyclerview).html</guid>
+			</item>
+		
+			<item>
+				<title>Android Animator!</title>
+        <description>&lt;p&gt;간단한 안드로이드 애니메이션.
+bind는 &lt;a gref=&quot;https://github.com/JakeWharton/butterknife&quot;&gt;버터나이프&lt;/a&gt; 를 이용했습니다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;  @Bind(R.id.imageview) ImageView imageview;
+  private boolean fabUp = false;
+
+  @OnClick(R.id.btn_hello)
+  void onbtnClick() {
+    ViewPropertyAnimator viewPropertyAnimator = imageview.animate();
+
+    if (!imageviewUp) {
+      imageviewUp = true;
+      viewPropertyAnimator.cancel(); // 애니메이션이 취소될 경우 cancel 을 해주어어야 부드럽게 넘어감.
+      viewPropertyAnimator
+              .setDuration(3000)// 듀레이션설정
+              .translationY(-2000)
+              .rotationY(300);
+      viewPropertyAnimator.start();
+    } else {
+      imageviewUp = false;
+      viewPropertyAnimator.cancel();
+      viewPropertyAnimator
+              .setDuration(3000)
+              .translationY(0)
+              .rotationY(0);
+      viewPropertyAnimator.start();
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://developer.android.com/intl/ko/reference/android/animation/Animator.html&quot;&gt;Animator 참고문&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Fri, 19 Feb 2016 04:38:00 +0900</pubDate>
+				<link>/2016/02/19/android-animator.html</link>
+				<guid isPermaLink="true">/2016/02/19/android-animator.html</guid>
+			</item>
+		
+			<item>
+				<title>Android DeelLink!</title>
+        <description>&lt;p&gt;아래처럼 설정해줌.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;activity&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.MainActivty&quot;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;android:screenOrientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;portrait&quot;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;android:label=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@string/app_name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;intent-filter&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;action&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.intent.action.MAIN&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;category&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;android.intent.category.LAUNCHER&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/activity&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;activity&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.DeepLinkActivity&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:screenOrientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;portrait&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;android:label=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@string/app_name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;intent-filter&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;action&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.intent.action.VIEW&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;category&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.intent.category.DEFAULT&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;category&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.intent.category.BROWSABLE&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;c&quot;&amp;gt;&amp;amp;lt;!--android-app://com.ekeon.deeplink/ekeon/main--&amp;amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;data&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:scheme=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ekeon&quot;&amp;lt;/span&amp;gt;
+      &amp;lt;span class=&quot;na&quot;&amp;gt;android:host=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;main&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/intent-filter&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/activity&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/app-indexing/android/test?hl=ko&quot;&gt;DeepLinkTest&lt;/a&gt; 들어가서 android-app://{package}/{scheme}/{host}/{path} 형식으로 넣어준다.&lt;/p&gt;
+
+&lt;h2&gt;ex) android-app://com.ekeon.deeplink/ekeon/main&lt;/h2&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DeepLinkActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Intent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;intent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getIntent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;goHomeActivity&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;k&quot;&amp;gt;this&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;HomeActivity&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;class&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;n&quot;&amp;gt;startActivity&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;goHomeActivity&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;c1&quot;&amp;gt;// 핸들링 해주면된다&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+</description>
+				<pubDate>Fri, 15 Jan 2016 04:38:00 +0900</pubDate>
+				<link>/2016/01/15/android-deeplink.html</link>
+				<guid isPermaLink="true">/2016/01/15/android-deeplink.html</guid>
+			</item>
+		
+			<item>
+				<title>github.io add disqus!</title>
+        <description>&lt;p&gt;1.&lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt; 들어가서 signup 해준다.
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus1.png&quot; alt=&quot;disqus1&quot; /&gt;
+2.오른쪽 Add Disqus To Stie Click
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus2.png&quot; alt=&quot;disqus2&quot; /&gt;
+3.Start Using Engage
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus3.png&quot; alt=&quot;disqus3&quot; /&gt;
+4.다 적은후 Finish registration.
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus4.png&quot; alt=&quot;disqus4&quot; /&gt;
+5.Universal Code 클릭
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus5.png&quot; alt=&quot;disqus5&quot; /&gt;
+6.아래 소스코드 copy
+&lt;img src=&quot;https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png&quot; alt=&quot;disqus6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;7.자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준다.&lt;/p&gt;
+
+&lt;p&gt;8.comments.html 을 layouts 안에 있는 post.html 에 추가해준다.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 13 Jan 2016 05:44:00 +0900</pubDate>
+				<link>/2016/01/13/github-io-add-disqus.html</link>
+				<guid isPermaLink="true">/2016/01/13/github-io-add-disqus.html</guid>
+			</item>
+		
+			<item>
+				<title>Android Service Restart!</title>
+        <description>&lt;h3&gt;PersistentService.java&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PersistentService&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Service&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;nd&quot;&amp;gt;@Override&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;kd&quot;&amp;gt;public&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;kt&quot;&amp;gt;void&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;onCreate&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;()&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;PersistentService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;s&quot;&amp;gt;&quot;onCreate&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;unregisterRestartAlarm&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;();&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;c1&quot;&amp;gt;// 만들어질때 알람 해제해줌.&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;kd&quot;&amp;gt;super&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;onCreate&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;();&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;nd&quot;&amp;gt;@Override&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;kd&quot;&amp;gt;public&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;kt&quot;&amp;gt;void&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;onDestroy&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;()&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;PersistentService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;onDestroy&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+
+        &amp;lt;span class=&quot;n&quot;&amp;gt;registerRestartAlarm&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;();&amp;lt;/span&amp;gt;  &amp;lt;span class=&quot;c1&quot;&amp;gt;// 서비스 종료될때 알람등록해줌.&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;kd&quot;&amp;gt;super&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;onDestroy&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;();&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;kd&quot;&amp;gt;public&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;kt&quot;&amp;gt;void&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;registerRestartAlarm&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;()&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;this&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;RestartService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;class&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;setAction&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ACTION.RESTART.PersistentService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+
+        &amp;lt;span class=&quot;n&quot;&amp;gt;PendingIntent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;sender&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;PendingIntent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;getBroadcast&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;this&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+
+        &amp;lt;span class=&quot;kt&quot;&amp;gt;long&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;firstTime&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;SystemClock&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;elapsedRealtime&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;();&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;firstTime&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;+=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;1000&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;*&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;10&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;;&amp;lt;/span&amp;gt;
+
+        &amp;lt;span class=&quot;n&quot;&amp;gt;AlarmManager&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;am&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;AlarmManager&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;getSystemService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;ALARM_SERVICE&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;am&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;setRepeating&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;AlarmManager&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;ELAPSED_REALTIME_WAKEUP&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;firstTime&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;*&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;10&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;1000&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;sender&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;kd&quot;&amp;gt;public&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;kt&quot;&amp;gt;void&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;unregisterRestartAlarm&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;()&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;this&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;RestartService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;class&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;setAction&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ACTION.RESTART.PersistentService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+
+        &amp;lt;span class=&quot;n&quot;&amp;gt;PendingIntent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;sender&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;PendingIntent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;getBroadcast&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;this&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;mi&quot;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+
+        &amp;lt;span class=&quot;n&quot;&amp;gt;AlarmManager&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;am&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;AlarmManager&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;)&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;getSystemService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;ALARM_SERVICE&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;am&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;cancel&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;sender&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;nd&quot;&amp;gt;@Override&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;kd&quot;&amp;gt;public&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;IBinder&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;onBind&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;TAG&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RESTART SERVICE&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;c1&quot;&amp;gt;// Service 를 extend 받을시 필수&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;k&quot;&amp;gt;return&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;kc&quot;&amp;gt;null&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;;&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt;RestartService.java&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RestartService&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BroadcastReceiver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;nd&quot;&amp;gt;@Override&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;kd&quot;&amp;gt;public&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;kt&quot;&amp;gt;void&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;onReceive&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;Context&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;context&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RestartService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RestartService called! :&quot;&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;+&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;getAction&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;());&amp;lt;/span&amp;gt;
+
+    &amp;lt;span class=&quot;k&quot;&amp;gt;if&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;getAction&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;().&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;equals&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ACTION.RESTART.PERSISTENTSERVICE&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;)){&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RestartService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ACTION_RESTART_PERSISTENTSERVICE&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;i&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;context&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;class&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;context&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;startService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;i&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+
+    &amp;lt;span class=&quot;k&quot;&amp;gt;if&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;getAction&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;().&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;equals&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;ACTION_BOOT_COMPLETED&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;))&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RestartService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ACTION_BOOT_COMPLETED&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;i&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;context&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;class&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+        &amp;lt;span class=&quot;n&quot;&amp;gt;context&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;startService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;i&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt;MainActivity.java&lt;/h3&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;BroadcastReceiver&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receiver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RestartService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;setContentView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;activity_main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;intentMyService&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;Intent&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;k&quot;&amp;gt;this&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;PersistentService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;class&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;n&quot;&amp;gt;receiver&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;RestartService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;();&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;k&quot;&amp;gt;try&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;n&quot;&amp;gt;IntentFilter&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;mainFilter&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;=&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;k&quot;&amp;gt;new&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;IntentFilter&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;com.ekeon.clipboardtest.restart&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;n&quot;&amp;gt;registerReceiver&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;receiver&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;mainFilter&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;n&quot;&amp;gt;startService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;intentMyService&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;k&quot;&amp;gt;catch&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;Exception&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;n&quot;&amp;gt;e&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;)&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;o&quot;&amp;gt;{&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;n&quot;&amp;gt;Log&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;d&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;(&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RestartService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;,&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;n&quot;&amp;gt;e&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;.&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;na&quot;&amp;gt;getMessage&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;()+&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;o&quot;&amp;gt;);&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;o&quot;&amp;gt;}&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onDestroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;unregisterReceiver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;receiver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onDestroy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;### AndroidManifest.xml&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;manifest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;package=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.ekeon.clipboardtest&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;uses-permission&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;application&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:allowBackup=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:icon=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@mipmap/ic_launcher&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:label=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@string/app_name&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:supportsRtl=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;android:theme=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;@style/AppTheme&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;activity&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;.MainActivity&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;intent-filter&amp;amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;action&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;android.intent.action.MAIN&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;category&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;android.intent.category.LAUNCHER&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;/intent-filter&amp;amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;/activity&amp;amp;gt;&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;service&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;.PersistentService&quot;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:enabled=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;true&quot;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:process=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;:remote&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;intent-filter&amp;amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;action&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;com.ekeon.clipboardtest.restart&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;/intent-filter&amp;amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;/service&amp;amp;gt;&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;receiver&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;.RestartService&quot;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:enabled=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;true&quot;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:exported=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;false&quot;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:label=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;RestartService&quot;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;na&quot;&amp;gt;android:process=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;:remote&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;intent-filter&amp;amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;action&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;ACTION.RESTART.PersistentService&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;action&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;na&quot;&amp;gt;android:name=&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;s&quot;&amp;gt;&quot;android.intent.action.BOOT_COMPLETED&quot;&amp;lt;/span&amp;gt;&amp;lt;span class=&quot;nt&quot;&amp;gt;/&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;/intent-filter&amp;amp;gt;&amp;lt;/span&amp;gt;
+
+&amp;lt;span class=&quot;nt&quot;&amp;gt;&amp;amp;lt;/receiver&amp;amp;gt;&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/application&amp;gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+</description>
+				<pubDate>Tue, 12 Jan 2016 03:53:00 +0900</pubDate>
+				<link>/2016/01/12/android-service-restart.html</link>
+				<guid isPermaLink="true">/2016/01/12/android-service-restart.html</guid>
+			</item>
+		
+			<item>
+				<title>Example content</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper est in imperdiet molestie. Curabitur aliquet sem in ante venenatis.&lt;/p&gt;
+
+
+&lt;p&gt;Morbi ultrices libero imperdiet &lt;a href=&quot;#&quot;&gt;lectus&lt;/a&gt; dignissim, sit amet bibendum nisl consectetur. Morbi erat purus, pretium at ligula tincidunt, faucibus commodo sem. Etiam vel porttitor est, vitae maximus ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien turpis, cursus non porta ac.&lt;/p&gt;
+
+&lt;h2&gt;Lorem&lt;/h2&gt;
+
+&lt;p&gt;Quisque sodales euismod nibh, gravida venenatis nibh dignissim eget. Morbi gravida enim vel lectus aliquet aliquet.&lt;/p&gt;
+
+&lt;h3&gt;Ipsum&lt;/h3&gt;
+
+&lt;p&gt;Nunc nec aliquam tellus. Etiam faucibus magna nibh, ut fermentum velit consectetur id. Nullam vehicula iaculis tortor, in cursus enim auctor vitae. Duis semper pulvinar justo, at vestibulum dolor. Cras fermentum nibh quis nisl imperdiet ornare. Sed nisi nunc, dictum sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Nam vitae commodo ex. Nunc vel tellus leo.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Dugem&lt;/h2&gt;
+
+&lt;p&gt;Nullam vehicula iaculis tortor, in cursus enim auctor vitae. Duis semper pulvinar justo, at vestibulum dolor. Cras fermentum nibh quis nisl imperdiet ornare. Sed nisi nunc, dictum sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trigger_alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Lorem Ipsum dolor sit amet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;nx&quot;&gt;trigger_alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;trigger_alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Lorem Ipsum dolor sit amet&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;n&quot;&gt;trigger_alert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h3&gt;Golem&lt;/h3&gt;
+
+&lt;p&gt;Quisque sodales euismod nibh, gravida venenatis nibh dignissim eget. Morbi gravida enim vel lectus aliquet aliquet.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Praesent commodo cursus magna.&lt;/li&gt;
+&lt;li&gt;Donec id elit non mi porta gravida at eget metus.&lt;/li&gt;
+&lt;li&gt;Nulla vitae elit libero, a pharetra augue.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Cras fermentum nibh quis nisl imperdiet ornare. Sed nisi nunc, dictum sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Vestibulum id ligula porta felis euismod semper.&lt;/li&gt;
+&lt;li&gt;Cum sociis natoque penatibus.&lt;/li&gt;
+&lt;li&gt;Maecenas sed diam eget risus.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Nam ante lacus, ornare ut lacus in, aliquet gravida orci. Donec non dignissim elit. Integer facilisis lorem sed porttitor elementum. Etiam a eleifend justo.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;HyperText Markup Language (HTML)&lt;/dt&gt;
+  &lt;dd&gt;The language used to describe and define the content of a Web page&lt;/dd&gt;
+
+  &lt;dt&gt;Cascading Style Sheets (CSS)&lt;/dt&gt;
+  &lt;dd&gt;Used to describe the appearance of Web content&lt;/dd&gt;
+
+  &lt;dt&gt;JavaScript (JS)&lt;/dt&gt;
+  &lt;dd&gt;The programming language used to build advanced Web sites and applications&lt;/dd&gt;
+&lt;/dl&gt;
+
+
+&lt;p&gt;Sed nisi nunc, dictum sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://placehold.it/800x400&quot; title=&quot;Large example image&quot; alt=&quot;Large example image&quot; /&gt;
+&lt;img src=&quot;http://placehold.it/400x200&quot; title=&quot;Medium example image&quot; alt=&quot;Medium example image&quot; /&gt;
+&lt;img src=&quot;http://placehold.it/200x200&quot; title=&quot;Small example image&quot; alt=&quot;Small example image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Rank&lt;/th&gt;
+      &lt;th&gt;Score&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cookie&lt;/td&gt;
+      &lt;td&gt;#69&lt;/td&gt;
+      &lt;td&gt;169&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Buther&lt;/td&gt;
+      &lt;td&gt;#70&lt;/td&gt;
+      &lt;td&gt;169&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Stuart&lt;/td&gt;
+      &lt;td&gt;#71&lt;/td&gt;
+      &lt;td&gt;168&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 09 Aug 2015 00:00:00 +0900</pubDate>
+				<link>/2015/08/09/example-content.html</link>
+				<guid isPermaLink="true">/2015/08/09/example-content.html</guid>
+			</item>
+		
+			<item>
+				<title>Whats Jekyll?</title>
+        <description>&lt;p class=&quot;lead&quot;&gt; &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.&lt;/p&gt;
+
+
+&lt;p&gt;From &lt;a href=&quot;https://github.com/jekyll/jekyll/blob/master/README.markdown&quot;&gt;the project&#39;s readme&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;It&#39;s an immensely useful tool. Find out more by &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 08 Aug 2015 00:00:00 +0900</pubDate>
+				<link>/2015/08/08/whats-jekyll.html</link>
+				<guid isPermaLink="true">/2015/08/08/whats-jekyll.html</guid>
+			</item>
+		
+	</channel>
+</rss>

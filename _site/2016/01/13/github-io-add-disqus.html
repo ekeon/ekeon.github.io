@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>github.io add disqus!</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+  <div class="container">
+    	<article class="content">
+    		<header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="/">Ekeon</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">github.io add disqus!</h1>
+  <div class="post-date">
+    <time>13 Jan 2016</time>
+  </div>
+  <p>1.<a href="https://disqus.com/">Disqus</a> 들어가서 signup 해준다.
+<img src="https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus1.png" alt="disqus1" />
+2.오른쪽 Add Disqus To Stie Click
+<img src="https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus2.png" alt="disqus2" />
+3.Start Using Engage
+<img src="https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus3.png" alt="disqus3" />
+4.다 적은후 Finish registration.
+<img src="https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus4.png" alt="disqus4" />
+5.Universal Code 클릭
+<img src="https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus5.png" alt="disqus5" />
+6.아래 소스코드 copy
+<img src="https://raw.githubusercontent.com/ekeon/ekeon.github.io/master/image/disqus6.png" alt="disqus6" /></p>
+
+<p>7.자신의 includes 폴더안에 comments.html 생성 해주고 아까 copy 한 내용을 복사해준다.</p>
+
+<p>8.comments.html 을 layouts 안에 있는 post.html 에 추가해준다.</p>
+
+</div>
+
+    	<section class="comment">
+    	<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//ekeon.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    	</section>
+	</article>
+  </div>
+</body>
+</html>

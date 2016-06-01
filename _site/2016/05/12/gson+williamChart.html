@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gson + williamChart</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+  <div class="container">
+    	<article class="content">
+    		<header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="/">Ekeon</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">gson + williamChart</h1>
+  <div class="post-date">
+    <time>12 May 2016</time>
+  </div>
+  <p class="lead"> <a href="https://github.com/google/gson">Gson</a> : json convert to java object</p>
+
+
+<p class="lead"> <a href="https://github.com/diogobernardino/WilliamChart">WilliamChart</a> : android chart library</p>
+
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">{</span>
+  <span class="s">"dummy"</span><span class="o">:</span> <span class="o">{</span>
+    <span class="s">"dummydata"</span><span class="o">:</span> <span class="o">{</span>
+      <span class="s">"dummylist"</span><span class="o">:</span> <span class="o">{</span>
+        <span class="s">"one"</span><span class="o">:</span> <span class="mf">42.87</span><span class="o">,</span>
+        <span class="s">"two"</span><span class="o">:</span> <span class="mf">42.16</span><span class="o">,</span>
+        <span class="s">"three"</span><span class="o">:</span> <span class="mf">42.45</span><span class="o">,</span>
+        <span class="s">"four"</span><span class="o">:</span> <span class="mf">39.16</span><span class="o">,</span>
+        <span class="s">"five"</span><span class="o">:</span> <span class="mf">37.25</span><span class="o">,</span>
+        <span class="s">"six"</span><span class="o">:</span> <span class="mf">38.02</span>
+      <span class="o">},</span>
+      <span class="s">"dummycount"</span><span class="o">:</span> <span class="mf">40.32</span><span class="o">,</span>
+      <span class="s">"dummydummy"</span><span class="o">:</span> <span class="mi">0</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure></p>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DummyListModel</span> <span class="o">{</span>
+  <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">"dummylist"</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Float</span><span class="o">&gt;</span> <span class="n">dummylist</span><span class="o">;</span>
+  <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">"dummycount"</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="kt">float</span> <span class="n">dummycount</span><span class="o">;</span>
+  <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">"dummydummy"</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="n">dummydummy</span><span class="o">;</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Float</span><span class="o">&gt;</span> <span class="n">getDummyList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">dummyList</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="kt">void</span> <span class="n">setDummyList</span><span class="o">(</span><span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Float</span><span class="o">&gt;</span> <span class="n">dummyList</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dummyList</span> <span class="o">=</span> <span class="n">dummyList</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="kt">float</span> <span class="n">getDummyCount</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">dummyCount</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="kt">void</span> <span class="n">setDummyCount</span><span class="o">(</span><span class="kt">float</span> <span class="n">dummyCount</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dummyCount</span> <span class="o">=</span> <span class="n">dummyCount</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">Integer</span> <span class="n">getDummydummy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">dummydummy</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="kt">void</span> <span class="n">setDummydummy</span><span class="o">(</span><span class="n">Integer</span> <span class="n">dummydummy</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dummydummy</span> <span class="o">=</span> <span class="n">dummydummy</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p><span class="o">}</span></code></pre></figure></p>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DummyDataModel</span> <span class="o">{</span>
+  <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">"dummydata"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="n">DummyListModel</span> <span class="n">dummyListModel</span><span class="o">;</span></p>
+
+<p>  <span class="kd">public</span> <span class="kt">void</span> <span class="n">setDummyListModel</span><span class="o">(</span><span class="n">DummyListModel</span> <span class="n">dummyListModel</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dummyListModel</span> <span class="o">=</span> <span class="n">dummyListModel</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">DummyListModel</span> <span class="n">getDummyListModel</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">commentCount</span><span class="o">;</span>
+  <span class="o">}</span></code></pre></figure></p>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DummyModel</span> <span class="o">{</span>
+  <span class="nd">@SerializedName</span><span class="o">(</span><span class="s">"dummy"</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="n">DummyDataModel</span> <span class="n">dummydatamodel</span><span class="o">;</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">DummyData</span> <span class="n">getDummyDataModel</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">dummydatamodel</span><span class="o">;</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="kt">void</span> <span class="n">setDummyDataModel</span><span class="o">(</span><span class="n">DummyDataModel</span> <span class="n">dummydatamodel</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">dummydatamodel</span> <span class="o">=</span> <span class="n">dummydatamodel</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure></p>
+
+<pre><code>  private final static String dummyjson = "dummyjson"//예제 json;
+
+  public DummyJsonModel getDummyModel() {
+    Gson gson = new Gson();
+    DummyJsonModel dummyJsonModel = gson.fromJson(dummyjson, DummyJsonModel.class);
+
+    return dummyJsonModel == null ? null : dummyJsonModel;
+}
+</code></pre>
+
+</div>
+
+    	<section class="comment">
+    	<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//ekeon.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    	</section>
+	</article>
+  </div>
+</body>
+</html>

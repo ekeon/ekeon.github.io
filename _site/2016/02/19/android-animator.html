@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Android Animator!</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+  <div class="container">
+    	<article class="content">
+    		<header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="/">Ekeon</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Android Animator!</h1>
+  <div class="post-date">
+    <time>19 Feb 2016</time>
+  </div>
+  <p>간단한 안드로이드 애니메이션.
+bind는 <a gref="https://github.com/JakeWharton/butterknife">버터나이프</a> 를 이용했습니다.</p>
+
+<pre><code class="java">  @Bind(R.id.imageview) ImageView imageview;
+  private boolean fabUp = false;
+
+  @OnClick(R.id.btn_hello)
+  void onbtnClick() {
+    ViewPropertyAnimator viewPropertyAnimator = imageview.animate();
+
+    if (!imageviewUp) {
+      imageviewUp = true;
+      viewPropertyAnimator.cancel(); // 애니메이션이 취소될 경우 cancel 을 해주어어야 부드럽게 넘어감.
+      viewPropertyAnimator
+              .setDuration(3000)// 듀레이션설정
+              .translationY(-2000)
+              .rotationY(300);
+      viewPropertyAnimator.start();
+    } else {
+      imageviewUp = false;
+      viewPropertyAnimator.cancel();
+      viewPropertyAnimator
+              .setDuration(3000)
+              .translationY(0)
+              .rotationY(0);
+      viewPropertyAnimator.start();
+    }
+  }
+</code></pre>
+
+<p><a href="http://developer.android.com/intl/ko/reference/android/animation/Animator.html">Animator 참고문</a></p>
+
+</div>
+
+    	<section class="comment">
+    	<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//ekeon.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    	</section>
+	</article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TwoWayView + RecyclerView</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link rel="stylesheet" href="/style.css">
+  </head>
+<body>
+  <div class="container">
+    	<article class="content">
+    		<header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="/">Ekeon</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">TwoWayView + RecyclerView</h1>
+  <div class="post-date">
+    <time>24 Feb 2016</time>
+  </div>
+  <p><a href="https://github.com/lucasr/twoway-view">twoway-view</a> 란 안드로이드 <a href="http://developer.android.com/intl/ko/reference/android/support/v7/widget/RecyclerView.html">RecyclerView 의 라이브러리 이다.</a><br/>
+기본 RecyclerView 와 사용법은 똑같지만 RecyclerView 를 init 해주는 시점에서 setLayoutManager부분이 기존 RecyclerView 보다 많은 기능을 제공해주기 때문에 일반 RecyclerView를 쓰기보다는 TwoWayView를 사용하기를 추천한다.</p>
+
+<p><a href="https://github.com/ekeon/twowayviewExample">예제소스 깃 주소</a></p>
+
+<h4>gradle : compile 'org.lucasr.twowayview:twowayview:0.1.4'</h4>
+
+<p>RecyclerView에 사용할 뷰홀더를 3개 만들었다.</p>
+
+<h3>holder_one.xml, HolderOne.java</h3>
+
+<p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+              <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+              <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+              <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+              <span class="na">android:background=</span><span class="s">"@android:color/holo_red_light"</span><span class="nt">&gt;</span></p>
+
+<p>  <span class="nt">&lt;Button</span>
+      <span class="na">android:text=</span><span class="s">"view holder one"</span>
+      <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+      <span class="na">android:layout_height=</span><span class="s">"100dp"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></figure></p>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HolderOne</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="o">{</span></p>
+
+<p>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">HolderOne</span> <span class="n">newInstance</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">View</span> <span class="n">itemView</span> <span class="o">=</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">holder_one</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">HolderOne</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">HolderOne</span><span class="o">(</span><span class="n">View</span> <span class="n">itemView</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+    <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p><span class="o">}</span></code></pre></figure></p>
+
+<h3>holder_two.xml, HolderTwo.java</h3>
+
+<p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+              <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+              <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+              <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+              <span class="na">android:background=</span><span class="s">"@android:color/holo_blue_dark"</span><span class="nt">&gt;</span></p>
+
+<p>  <span class="nt">&lt;Button</span>
+      <span class="na">android:text=</span><span class="s">"view holder two"</span>
+      <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+      <span class="na">android:layout_height=</span><span class="s">"100dp"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></figure></p>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HolderTwo</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="o">{</span></p>
+
+<p>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">HolderTwo</span> <span class="n">newInstance</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">View</span> <span class="n">itemView</span> <span class="o">=</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">holder_two</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">HolderTwo</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">HolderTwo</span><span class="o">(</span><span class="n">View</span> <span class="n">itemView</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure></p>
+
+<h3>holder_three.xml, HolderThree.java</h3>
+
+<p><figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+              <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+              <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+              <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+              <span class="na">android:background=</span><span class="s">"@android:color/holo_green_light"</span><span class="nt">&gt;</span></p>
+
+<p>  <span class="nt">&lt;Button</span>
+      <span class="na">android:text=</span><span class="s">"view holder three"</span>
+      <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+      <span class="na">android:layout_height=</span><span class="s">"100dp"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/LinearLayout&gt;</span></code></pre></figure></p>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HolderThree</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="o">{</span></p>
+
+<p>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">HolderThree</span> <span class="n">newInstance</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">View</span> <span class="n">itemView</span> <span class="o">=</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">holder_three</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">HolderThree</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">HolderThree</span><span class="o">(</span><span class="n">View</span> <span class="n">itemView</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure></p>
+
+<h3>twoWayView Adapter</h3>
+
+<pre><code class="java">public class TwoWaySampleAdapter extends TwoWayView.Adapter {
+
+  private final int TYPE_HOLDER_ONE = 0;
+  private final int TYPE_HOLDER_TWO = 1;
+  private final int TYPE_HOLDER_THREE = 2;
+
+  @Override
+  public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    RecyclerView.ViewHolder viewHolder = null;
+    Context context = parent.getContext();
+
+    //위에 int 로 지정해놓은 뷰홀더 타입에 인스턴스를 넘겨주고 viewholder을 리턴해줌.
+    switch (viewType) {
+      case TYPE_HOLDER_ONE:
+        viewHolder = HolderOne.newInstance(context);
+        break;
+      case TYPE_HOLDER_TWO:
+        viewHolder = HolderTwo.newInstance(context);
+        break;
+      case TYPE_HOLDER_THREE:
+        viewHolder = HolderThree.newInstance(context);
+        break;
+    }
+    return viewHolder;
+  }
+
+  @Override
+  public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+  //view holder 에 position값이나 data 등을 넘겨줄때 사용해준다.
+  }
+
+  @Override
+  public int getItemCount() {
+    //보통 어댑터를 set해줄때 넘겨주는 array의 size로 카운트를 정해놓지만 간단한 예제이기때문에 고정된 숫자로 넣어두었다.
+    //ex) array.size;
+    return 13;
+  }
+
+  @Override
+  public int getItemViewType(int position) {
+  //넣고싶은 위치에 분기를 쳐서 타입을 리턴해주면 된다.
+    if (position &gt;= 0 &amp;&amp; position &lt;= 4) {
+     return TYPE_HOLDER_ONE;
+    }
+
+    if (position &gt;= 5 &amp;&amp; position &lt;= 9) {
+      return TYPE_HOLDER_TWO;
+    }
+
+    if (position &gt;= 10 &amp;&amp; position &lt;= 14) {
+      return TYPE_HOLDER_THREE;
+    }
+    return super.getItemViewType(position);
+  }
+}
+</code></pre>
+
+<h3>Adapter를 init해줄 Fragment</h3>
+
+<pre><code class="java">public class TwoWaySampleFragment extends Fragment {
+
+  @Bind(R.id.twv_test) TwoWayView testRecyclerView;
+  TwoWaySampleAdapter twoWaySampleAdapter;
+
+  public static TwoWaySampleFragment newInstance() {
+    return new TwoWaySampleFragment();
+  }
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.twowayview, container, false);
+  }
+
+  @Override
+  public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    ButterKnife.bind(this, view);
+    twoWaySampleAdapter = new TwoWaySampleAdapter();
+
+    testRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(TwoWayLayoutManager.Orientation.VERTICAL, 2, 2));
+    testRecyclerView.setAdapter(twoWaySampleAdapter);
+
+    Log.d("TAG", "init");
+  }
+
+  @Override
+  public void onDestroy() {
+    ButterKnife.unbind(this);
+    super.onDestroy();
+  }
+
+}
+</code></pre>
+
+<pre><code class="java">//넘겨주는 부분 MainActivity.
+  @OnClick(R.id.btn_show_twv)
+  void onShowTwv() {
+    Fragment twoWaySampleFragment = TwoWaySampleFragment.newInstance();
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+            .add(R.id.fl_fragment_layout, twoWaySampleFragment)
+            .show(twoWaySampleFragment);
+
+    fragmentTransaction.commit();
+
+  }
+</code></pre>
+
+<h4>참고 예제</h4>
+
+<p><figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HolderOne</span> <span class="kd">extends</span> <span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="o">{</span></p>
+
+<p>  <span class="nd">@Bind</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">btn_holder_one</span><span class="o">)</span> <span class="n">Button</span> <span class="n">btnHolderOne</span><span class="o">;</span></p>
+
+<p>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">HolderOne</span> <span class="n">newInstance</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">View</span> <span class="n">itemView</span> <span class="o">=</span> <span class="n">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">holder_one</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">HolderOne</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">public</span> <span class="n">HolderOne</span><span class="o">(</span><span class="n">View</span> <span class="n">itemView</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">itemView</span><span class="o">);</span>
+    <span class="n">ButterKnife</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">itemView</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="n">publiv</span> <span class="kt">void</span> <span class="n">bind</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">btnHolderOne</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">""</span> <span class="o">+</span> <span class="n">position</span><span class="o">);</span>
+  <span class="o">}</span></p>
+
+<p><span class="o">}</span>
+<span class="o">...</span>
+<span class="c1">//in adapter</span></p>
+
+<p>  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onBindViewHolder</span><span class="o">(</span><span class="n">RecyclerView</span><span class="o">.</span><span class="na">ViewHolder</span> <span class="n">holder</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">holder</span> <span class="k">instanceof</span> <span class="n">HolderOne</span><span class="o">)</span> <span class="o">{</span>
+      <span class="o">((</span><span class="n">HolderOne</span><span class="o">)</span> <span class="n">holder</span><span class="o">).</span><span class="na">bind</span><span class="o">(</span><span class="n">postiong</span><span class="o">);</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span></p>
+
+<p>  <span class="kd">private</span> <span class="kt">void</span> <span class="n">onBindChannelResult</span><span class="o">(</span><span class="n">SearchResultChannelHolder</span> <span class="n">holder</span><span class="o">,</span> <span class="kt">int</span> <span class="n">position</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ChannelModel</span> <span class="n">channelModel</span> <span class="o">=</span> <span class="n">channels</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+    <span class="n">holder</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">channelModel</span><span class="o">);</span>
+  <span class="o">}</span></code></pre></figure></p>
+
+</div>
+
+    	<section class="comment">
+    	<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//ekeon.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    	</section>
+	</article>
+  </div>
+</body>
+</html>
