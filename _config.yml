@@ -19,6 +19,8 @@ nav:
     href:           "//github.com/Ekeon"
   - name:           "Theme Download"
     href:           "//github.com/gfjaru/Kiko/releases"
+  - name:           "Theme Download"
+    href:           "//github.com/gfjaru/Kiko/releases"
 
 # Sass
 sass:
