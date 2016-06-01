@@ -20,7 +20,7 @@ nav:
   - name:           "Theme Download"
     href:           "//github.com/gfjaru/Kiko/releases"
   - name:           "portfolio"
-    href:           "//ekeon.github.io/portfolio/portfolio.html"
+    href:           "//ekeon.github.io/portfolio"
 
 # Sass
 sass:
