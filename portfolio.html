@@ -131,14 +131,15 @@
 	</div>
 
 	 <script type="text/javascript">
+
+	 	$('#left_content').stick_in_parent('#left')
+		$('#left_content_2').stick_in_parent()
+
 		var height = $('#right').height()
 		var height2 = $('#right_2').height()
 
 		$('#content_one').css('height', height)
 		$('#content_two').css('height', height2)
-
-		$('#left_content').stick_in_parent('#left')
-		$('#left_content_2').stick_in_parent()
 
 		$('#left_content').height(document.body.clientHeight)
 
