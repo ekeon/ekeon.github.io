@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 
@@ -6,36 +5,10 @@
 <script src="jquery.easings.min.js"></script>
 <script type="text/javascript" src="sticky-kit.js"></script>
 
- 	<script type="text/javascript">
- 		$(document).ready(function() {
- 			var height = $('#right').height()
- 			var height2 = $('#right_2').height()
-
- 			$('#content_one').css('height', height)
- 			$('#content_two').css('height', height2)
-
-			$('#left_content').stick_in_parent('#left')
-			$('#left_content_2').stick_in_parent()
-
-			$('#left_content').height(document.body.clientHeight)
-
-			$(window).resize(function() {
-				var height = $('#right').height()
-	 			var height2 = $('#right_2').height()
-
-	 			$('#content_one').css('height', height)
-	 			$('#content_two').css('height', height2)
-
-				$('#left_content').height(document.body.clientHeight)
-			});
- 		});
- 	</script>
-
  	<style>
  		#header{
  			height: 100%;
  			width: 100%;
- 			background-color: #000000;
  		}
 
  		#content_one{
@@ -114,6 +87,8 @@
 		body {
 		       margin: 0;
         		       padding: 0;
+        		       position: relative;
+        		       height: 100%;
         		       overflow-x: hidden;
 		}
 	</style>
@@ -154,5 +129,28 @@
 				</div>
 		</div>
 	</div>
+
+	 <script type="text/javascript">
+		var height = $('#right').height()
+		var height2 = $('#right_2').height()
+
+		$('#content_one').css('height', height)
+		$('#content_two').css('height', height2)
+
+		$('#left_content').stick_in_parent('#left')
+		$('#left_content_2').stick_in_parent()
+
+		$('#left_content').height(document.body.clientHeight)
+
+		$(window).resize(function() {
+			var height = $('#right').height()
+ 			var height2 = $('#right_2').height()
+
+ 			$('#content_one').css('height', height)
+ 			$('#content_two').css('height', height2)
+
+			$('#left_content').height(document.body.clientHeight)
+		});
+ 	</script>
 </body>
 </html>
