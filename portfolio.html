@@ -4,44 +4,156 @@
 <link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="vendors/jquery.easings.min.js"></script>
-<script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
-<script type="text/javascript" src="jquery.fullPage.js"></script>
+<script src="jquery.easings.min.js"></script>
+<script type="text/javascript" src="sticky-kit.js"></script>
 
  	<script type="text/javascript">
  		$(document).ready(function() {
- 			$('#fullpage').fullpage({
- 				 sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke']
- 			});
- 			// $.fn.fullpage.setScrollingSpeed(500);
- 			$.fn.fullpage.setAutoScrolling(true);
-			$.fn.fullpage.setAllowScrolling(true);
-			$.fn.fullpage.setKeyboardScrolling(true);
+ 			var height = $('#right').height()
+ 			var height2 = $('#right_2').height()
+
+ 			$('#content_one').css('height', height)
+ 			$('#content_two').css('height', height2)
+
+			$('#left_content').stick_in_parent('#left')
+			$('#left_content_2').stick_in_parent()
+
+			$('#left_content').height(document.body.clientHeight)
+
+			$(window).resize(function() {
+				var height = $('#right').height()
+	 			var height2 = $('#right_2').height()
+
+	 			$('#content_one').css('height', height)
+	 			$('#content_two').css('height', height2)
+
+				$('#left_content').height(document.body.clientHeight)
+			});
  		});
  	</script>
 
  	<style>
- 		.section{
- 			font-size:  6em;
- 			text-align: center;
+ 		#header{
+ 			height: 100%;
+ 			width: 100%;
+ 			background-color: #000000;
+ 		}
+
+ 		#content_one{
+ 			width: auto;
+ 			height: auto;
+ 			min-height: 100%;
+ 		}
+
+ 		#left {
+ 			width: 50%;
+ 			height: 100%;
+ 			float: left;
+ 			background-color: #A49D8E;
+ 			position: relative;
+ 		}
+
+ 		#left_content {
+ 			position: relative;
+ 			width: 100%;
+ 		}
+
+ 		#left_content > img {
+ 			position: absolute;
+ 			left: 50%;
+ 			margin-left: -76.5px;
+ 			top:50%;
+ 			margin-top: -23.5px;
+
+ 		}
+
+ 		#right {
+ 			width: 50%;
+ 			height:  auto;
+ 			float: right;
+ 			font-size: 6em;
+ 			overflow: auto;
+ 			background-color: #FFFFFF;
+ 		}
+
+ 		#content_two{
+ 			width: auto;
+ 			height: auto;
+ 			min-height: 100%;
+ 		}
+
+ 		#left_2 {
+ 			width: 50%;
+ 			height: 100%;
+ 			float: left;
+ 			font-size: 10em;
+ 			background-color: #98EBDC;
+ 		}
+
+ 		#right_2 {
+ 			width: 50%;
+ 			height:  auto;
+ 			min-height: 100%;
+ 			float: right;
+ 			font-size: 6em;
+ 			background-color: #69A8AA;
+ 		}
+
+ 		#header_info {
+ 			margin-top:
+ 		}
+
+ 		#header_info > div {
+			position: absolute;
+			width: 100%;
+			top: 75%;
+			margin-top: -366px;
  		}
  	</style>
+
+	<style type="text/css">
+		body {
+		       margin: 0;
+        		       padding: 0;
+        		       overflow-x: hidden;
+		}
+	</style>
 </head>
 <body>
-	<div id="fullpage">
-		<div class="section">Section 1</div>
-			<div class="section">
-				<div class="slide">Section 2  Slide 1</div>
-				<div class="slide">Section 2  Slide 2</div>
-				<div class="slide">Section 2  Slide 3</div>
+	<div id="main_container">
+		<div id="header" style="position: relative">
+			<img src="resource/header_bg.png" style="width: 100%; height: 100%; position: absolute; "/>
+			<div id = "header_info" style="width:100%; height:100%; position:absolute">
+				<div>
+					<img src="resource/txt_portfolio.png" style="margin: 0 auto;display: block;"/>
+					<img src="resource/txt_name.png" style="margin: 0 auto;display: block;margin-top:20;"/>
+					<img src="resource/arrow.png" style="margin: 0 auto;display: block;margin-top:130;">
+				</div>
 			</div>
-	<div class="section">Section 3</div>
+		</div>
 
-	<div class="section">
-                   <div class="slide" data-anchor="slide1"> Slide 1 </div>
-	       <div class="slide" data-anchor="slide2"> Slide 2 </div>
-	       <div class="slide" data-anchor="slide3"> Slide 3 </div>
-	       <div class="slide" data-anchor="slide4"> Slide 4 </div>
-</div>
+		<div id="content_one">
+			<div id = "left">
+				<div id="left_content">
+					<img src="resource/about.png"/>
+				</div>
+			</div>
+
+			<div id = "right">
+				<div id="right1">right 1</div>
+				<div id="right2">right 2description dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy </div>
+			</div>
+		</div>
+
+		<div id="content_two">
+			<div id = "left_2">
+				<div id = "left_content_2">left!</div>
+			</div>
+				<div id = right_2>
+					<div id="right1_2">right 1</div>
+					<div id="right1_2">right 2description</div>
+				</div>
+		</div>
+	</div>
 </body>
 </html>
