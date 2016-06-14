@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android DeelLink!"
+title:  "Android DeelLink"
 date:   2016-01-15 4:38
 categories: jekyll update
 ---

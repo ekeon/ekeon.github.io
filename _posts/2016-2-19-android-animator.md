@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Android Animator!"
+title:  "Android Animator"
 date:   2016-02-19 4:38
 categories: jekyll update
 ---
