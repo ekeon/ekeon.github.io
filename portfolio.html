@@ -4,33 +4,36 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="jquery.easings.min.js"></script>
 <script type="text/javascript" src="sticky-kit.js"></script>
+<meta charset="utf-8">
 
  	<style>
+ 	@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
  		#header{
  			height: 100%;
  			width: 100%;
+ 			background-color: #2E2E2E;
  		}
 
- 		#content_one{
+ 		#about_content{
  			width: auto;
  			height: auto;
  			min-height: 100%;
  		}
 
- 		#left {
- 			width: 50%;
+ 		#about_left {
+ 			width: 30%;
  			height: 100%;
  			float: left;
- 			background-color: #A49D8E;
+ 			background-color: #8E8FA4;
  			position: relative;
  		}
 
- 		#left_content {
+ 		#about_icon {
  			position: relative;
  			width: 100%;
  		}
 
- 		#left_content > img {
+ 		#about_icon > img {
  			position: absolute;
  			left: 50%;
  			margin-left: -76.5px;
@@ -39,119 +42,232 @@
 
  		}
 
- 		#right {
- 			width: 50%;
+ 		#about_right {
+ 			box-sizing: border-box;
+ 			padding: 40px;
+ 			width: 70%;
  			height:  auto;
  			float: right;
- 			font-size: 6em;
- 			overflow: auto;
  			background-color: #FFFFFF;
  		}
 
- 		#content_two{
+		#about_skill {
+ 			height: auto;
+			margin-top: 10px
+ 		}
+
+ 		#work_content{
  			width: auto;
  			height: auto;
  			min-height: 100%;
  		}
 
- 		#left_2 {
- 			width: 50%;
+ 		#work_left {
+ 			width: 30%;
  			height: 100%;
  			float: left;
- 			font-size: 10em;
- 			background-color: #98EBDC;
+ 			background-color: #D45F5F;
+ 			position: relative;
  		}
 
- 		#right_2 {
- 			width: 50%;
+		 #work_icon {
+ 			position: relative;
+ 			width: 100%;
+ 		}
+
+ 		#work_icon > img {
+ 			position: absolute;
+ 			left: 50%;
+ 			margin-left: -76.5px;
+ 			top:50%;
+ 			margin-top: -23.5px;
+
+ 		}
+
+ 		#work_right {
+ 			box-sizing: border-box;
+ 			padding: 40px;
+ 			width: 70%;
  			height:  auto;
- 			min-height: 100%;
  			float: right;
- 			font-size: 6em;
- 			background-color: #69A8AA;
+ 			background-color: #FFFFFF;
  		}
 
  		#header_info {
- 			margin-top:
+ 			margin-top:0px;
  		}
 
  		#header_info > div {
 			position: absolute;
 			width: 100%;
-			top: 75%;
-			margin-top: -366px;
+			top: 20px;
+ 		}
+
+ 		#contact_content{
+ 			width: 100%;
+ 			height: 100%;
+ 			background-color: #2E2E2E;
+ 		}
+
+ 		#contact_info {
+ 			margin-top:0px;
+ 		}
+
+ 		#contact_info > div {
+			position: absolute;
+			width: 100%;
+			top: 20px;
  		}
  	</style>
 
 	<style type="text/css">
 		body {
 		       margin: 0;
-        		       padding: 0;
-        		       position: relative;
-        		       height: 100%;
-        		       overflow-x: hidden;
-		}
+		       padding: 0;
+		       position: relative;
+		       height: 100%;
+		       overflow-x: hidden;
+		       font-family: Noto Sans KR, sans-serif;
+		       font-size: 2.25em;
+				}
+      	p {
+			line-height: 0.5em;
+			margin-top: -10px
+      	   }
 	</style>
 </head>
 <body>
 	<div id="main_container">
 		<div id="header" style="position: relative">
-			<img src="resource/header_bg.png" style="width: 100%; height: 100%; position: absolute; "/>
+			<!-- <img src="resource/header_bg.png" style="width: 100%; height: 100%; position: absolute; "/> -->
 			<div id = "header_info" style="width:100%; height:100%; position:absolute">
 				<div>
-					<img src="resource/txt_portfolio.png" style="margin: 0 auto;display: block;"/>
-					<img src="resource/txt_name.png" style="margin: 0 auto;display: block;margin-top:20;"/>
-					<img src="resource/arrow.png" style="margin: 0 auto;display: block;margin-top:130;">
+					<img src="resource/txt_portfolio.png" style="margin: 0 auto;display: block;margin-top:10%;"/>
+					<img src="resource/txt_name.png" style="margin: 0 auto;display: block;margin-top:32;"/>
+					<img src="resource/txt_mail.png" style="margin: 0 auto;display: block;margin-top:15;"/>
+					<img src="resource/received_1625031641146678.gif" style="margin: 0 auto;display: block; width : 256px;margin-top:15;"
+					/>
+					<img src="resource/arrow.png" style="margin: 0 auto;display: block;">
 				</div>
 			</div>
 		</div>
 
-		<div id="content_one">
-			<div id = "left">
-				<div id="left_content">
+		<div id="about_content">
+			<div id = "about_left">
+				<div id="about_icon">
 					<img src="resource/about.png"/>
 				</div>
 			</div>
 
-			<div id = "right">
-				<div id="right1">right 1</div>
-				<div id="right2">right 2description dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy  dummy </div>
+			<div id = "about_right">
+				<img src="resource/graph.png"/>
+				<div id="about_skill">
+				<NOBR>
+				<p style="font-weight: 400; margin-top: 2em;">Develop</p>
+				<p style="font-weight: 100; margin-left: 2px;">Android</p>
+
+				<p style="font-weight: 400; margin-top: 2.5em;">Document</p>
+				<p style="font-weight: 100; margin-left: 2px;" >Jekyll blog (markdown),</p>
+				<p style="font-weight: 100; margin-left: 2px;" >Draw.io,</p>
+				<p style="font-weight: 100; margin-left: 2px;" >Confluence</p>
+
+				<p style="font-weight: 400; margin-top: 2.5em;">Design</p>
+				<p style="font-weight: 100; margin-left: 2px">Sketch,</p>
+				<p style="font-weight: 100; margin-left: 2px">Zeplin</p>
+
+				<p style="font-weight: 400; margin-top: 2.5em;">Other</p>
+				<p style="font-weight: 100; margin-left: 2px">Github flow,</p>
+				<p style="font-weight: 100; margin-left: 2px">Html,</p>
+				<p style="font-weight: 100; margin-left: 2px">xml,</p>
+				<p style="font-weight: 100; margin-left: 2px">Jenkins,</p>
+				<p style="font-weight: 100; margin-left: 2px">Jira,</p>
+				<p style="font-weight: 100; margin-left: 2px">Splunk mint</p>
+				</NOBR>
+				</div>
 			</div>
 		</div>
 
-		<div id="content_two">
-			<div id = "left_2">
-				<div id = "left_content_2">left!</div>
-			</div>
-				<div id = right_2>
-					<div id="right1_2">right 1</div>
-					<div id="right1_2">right 2description</div>
+		<div id="work_content">
+			<div id = "work_left">
+				<div id="work_icon">
+					<img src="resource/work.png"/>
 				</div>
+			</div>
+				<div id = work_right>
+					<p style="font-weight: 400; margin-top: 10px">Moncast<span style="font-weight: 100; font-size: 0.5em; margin-left: 20px"> 2015.1 ~ 2015.8</span></p>
+					<div style="font-size: 0.5em;">입사 초기에는 동영상 플랫폼인 몬캐스트 에서 UI/UX 변경작업과 유지보수, 기능개발 등을 맡았다.<br>
+					<br>
+					-UI/UX 개편<br>
+					몬캐스트를 출시한 이후 앱이 정적인것 같다 피드백을 받아 1.5 개편때 프로그레스바 와 스플래쉬 애니메이션 등을 추가하고 UI/UX 적으로 불편한 부분을 디자인과 사용성 개편하는 작업을 하게되었다. 이작업을 하면서 여러 커스텀뷰를 제작해보았고 마테리얼 디자인을 적용 하였다.<br>
+					<br>
+					-로그수집<br>
+					동영상 플랫폼 이다보니 추천영상과 같은 시스템이 필요하여 사용자 로그를 남겨 데이터를 서버에 쌓아보는 작업을 하게되어 컨텐츠에서 머문시간, 다음 컨텐츠 를 무엇을봤는지 등등을 보내주었는데 retrofit/okhttp 라이브러리 와 gson 을 사용하여 서버와 통신을 하였다.<br>
+					<br>
+					-버그수정<br>
+					crashlytics 를 통해 에러로그를 수집하고 우선순위를 정하여 버그를 수정하였다.<br>
+					</div>
+					<br>
+					<p style="font-weight: 400; margin-top: 10px">딩고 인도네시아<span style="font-weight: 100; font-size: 0.5em; margin-left: 20px">2015.5 ~2016.2</span></p>
+					<div style="font-size: 0.5em;">
+					몬캐스트 서비스를 접고 동남아 진출을 하게되어 맨처음으로 인도네시아를 타겟으로 정하여 동영상 플랫폼인 딩고라는 서비스를 런칭하게되었다. 딩고를 하면서 인도네시아 현지조사를 해본결과 인도네시아의 인터넷 환경이나 스마트폰 버전, 기기 파편화 등이 심각하였기 때문에 우리팀은 최대한 앱의 낮은용량과 낮은에러율, 인도네시아어,영어 지원, 사용성 을 목표로 두었다.그래서 에러로그 수집하는 MINT로 에러를 수집하여 에러율을 낮추고 뷰최적화, 이미지캐싱 등의 작업을 해주었고 반복되는 뷰가 많고 UI부분과 기능부분의 로직을 분리하기 위해 MVP패턴을 사용하였다.<br>
+					<br>
+					몬캐스트를 개발할때 서로 업무공유도 안되고 컨벤션과 구조도 엉망이었기 때문에 딩고를 시작하기전에 협업을 위해 업무공유는 JIRA를 통해서하였고 컨벤션 정의나, 규칙, 구조문서 등은 Confluence를 사용하여 서로 공유 하였다.<br>
+					<br>
+					-다국어지원<br>
+					인도네시아어, 영어, 한국어 를 ios 와 android 공통되게 맞추기위해 구글 스프레드 시트에 정리하여 공통되게 사용하였다. 기본 언어를 인도네시아로하였고. values-ko 와 values-en 을 두어 사용자 언어에따라 한국어와 영어를 지원해주었다.<br>
+					<br>
+					-뷰최적화<br>
+					<a href="https://developer.android.com/studio/profile/dev-options-overdraw.html">https://developer.android.com/studio/profile/dev-options-overdraw.html</a><br>
+					위에 링크의 설명처럼 개발자모드에서 gpu overdraw 옵션과 rendering 옵션을 키면 뷰가 ui를 그리는시간과 얼마나 뷰가 겹쳐져있는지 확인이가능하다. 딩고에서 기한을 맞추기위해 뷰 구조를 급하게 잡아 필요없는 리소스 가 생겨 이부분을 최적화하는 작업을 해주었다. 딩고앱의 경우는 기본 바탕 색이 흰색이여서 각 뷰들의 뒷배경을 transparent 로 주고 뷰가 init 이 된경우에도 프로그레스 바가 뷰뒤에서 도는 경우가있어 이런 부분들을 잡아주니 생각보다 메모리와 성능상에 이점이 꽤 괜찮았다.<br>
+					<br>
+					-페이스북 api<br>
+					인도네시아에서 페이스북 sns 를 제일 많이사용하여 페이스북 api 를 RnD 하게 되어서 FB login,App Invites, App Link, App Monetization, Messenger, account kit  등을 사용해 보았지만 FB설정변수나 기능문제가 있어 App invite와 FB login 기능을 제외한기능은 사용하지 못하였다.<br>
+					<br>
+					사용된 라이브러리  : ButterKnife, Realm, Gson, Retrofit, OkHttp, TwoWayView, Fresco, Otto, Facebook SDK<br>
+					에러 트래킹 :  Mint<br>
+					CI : Jenkins<br>
+					</div>
+					<br>
+					<p style="font-weight: 400; margin-top: 10px">딩고 인도네시아<span style="font-weight: 100; font-size: 0.5em; margin-left: 20px">2016.2 ~ 2016.6</span></p>
+					<div style="font-size:0.5em;">
+					기존 서비스 되고있던 딩고 인도네시아 서비스를 한국에서 아카이빙용 으로 사용하고 싶다는 요청과 버즈피드 비디오 형식의 메인뷰를 적용 한다고해서 버즈피드 비디오의 앱조사와 문서작업, 1차 기능 까지 만들었으나 적용하지 않는다고 결정이나 쓸모없는 기능제거와 잔버그들을 수정하여 올리고 유지보수 했다.
+					</div>
+					<br>
+
+					<p style="font-weight: 400; margin-top: 10px">딩고 기본 동작 동영상</p>
+					<video src="resource/dingo_sample.mp4" controls width="300px">지원안하는 브라우저</video>
+					<br>
+					<br>
+				</div>
+		</div>
+
+		<div id="contact_content">
+			<div id = "contact_info" style="width:100%; height:100%; position:absolute">
+				<div>
+					<img src="resource/contact.png" style="margin: 0 auto;display: block; margin-top:3%"/>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	 <script type="text/javascript">
+		function onHeightChanged() {
+			var height = $('#about_right').outerHeight()
+			var height2 = $('#work_right').outerHeight()
 
-	 	$('#left_content').stick_in_parent('#left')
-		$('#left_content_2').stick_in_parent()
+ 			$('#about_content').css('height', height)
+ 			$('#work_content').css('height', height2)
 
-		var height = $('#right').height()
-		var height2 = $('#right_2').height()
+			$('#about_icon').height(document.body.clientHeight)
+			$('#work_icon').height(document.body.clientHeight)
 
-		$('#content_one').css('height', height)
-		$('#content_two').css('height', height2)
+		 	$('#about_icon').stick_in_parent()
+			$('#work_icon').stick_in_parent()
+		}
 
-		$('#left_content').height(document.body.clientHeight)
-
-		$(window).resize(function() {
-			var height = $('#right').height()
- 			var height2 = $('#right_2').height()
-
- 			$('#content_one').css('height', height)
- 			$('#content_two').css('height', height2)
-
-			$('#left_content').height(document.body.clientHeight)
-		});
+		onHeightChanged()
+		setTimeout(onHeightChanged, 1000)
+		$(window).resize(onHeightChanged);
  	</script>
 </body>
 </html>
